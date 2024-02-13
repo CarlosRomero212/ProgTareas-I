@@ -7,17 +7,6 @@
     tools:context=".MainActivity">
 
 
-    <TextView
-        android:id="@+id/lblNum1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Num1:"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/txtNumero1"
-        app:layout_constraintVertical_chainStyle="packed"
-        android:layout_marginTop="16dp" />
-
     <EditText
         android:id="@+id/txtNumero1"
         android:layout_width="292dp"
