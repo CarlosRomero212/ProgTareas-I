@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Calculadora</string>
+    <string-array name="spnOpciones">
+        <item>Suma </item>
+        <item>Resta </item>
+        <item>Multiplicacion </item>
+        <item>Division </item>
+        <item>Porcentaje</item>
+        <item>Exponente</item>
+        <item>Factorial </item>
+        <item>Raiz </item>
+    </string-array>
+</resources>
