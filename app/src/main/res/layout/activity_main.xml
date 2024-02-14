@@ -32,21 +32,7 @@
                     android:layout_height="match_parent"
                     android:orientation="vertical">
 
-                    <TextView
-                        android:id="@+id/lblDeLongitud"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginTop="60dp"
-                        android:text="DE:" />
 
-                    <TextView
-                        android:id="@+id/lblALongitud"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginTop="120dp"
-                        android:text="A:" />
 
                     <Spinner
                         android:id="@+id/spnDeLongitud"
@@ -88,7 +74,53 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical">
+                    <TextView
+                        android:id="@+id/lblDemonda"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="60dp"
+                        android:text="DE:" />
 
+                    <TextView
+                        android:id="@+id/lblAmoneda"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="120dp"
+                        android:text="A:" />
+                    <Spinner
+                        android:id="@+id/spndemoneda"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="60dp"
+                        android:layout_marginTop="20dp"
+                        android:entries="@array/spnMonedas" />
+
+
+                    <Spinner
+                        android:id="@+id/spnAmoneda"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="60dp"
+                        android:layout_marginTop="20dp"
+                        android:entries="@array/spnMonedas" />
+
+                    <EditText
+                        android:id="@+id/txtCantidadMoneda"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/spnALongitud"
+                        android:layout_marginTop="40dp"
+                        android:hint="Cantidad a convertir" />
+
+                    <Button
+                        android:id="@+id/btnCalcularMoneda"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/txtCantidadMoneda"
+                        android:layout_marginTop="40dp"
+                        android:text="CONVERTIR" />
 
 
                 </LinearLayout>
@@ -98,6 +130,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical">
+
+
+
 
                 </LinearLayout>
             </FrameLayout>
