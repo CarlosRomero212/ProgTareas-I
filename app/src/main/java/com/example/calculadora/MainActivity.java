@@ -73,7 +73,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void mostrarResultado(double resultado) {
-        Toast.makeText(getApplicationContext(), "Respuesta: " + resultado, Toast.LENGTH_LONG).show();
+        String mensaje = String.format("Respuesta: %.1f", resultado);
+        Toast.makeText(getApplicationContext(), mensaje, Toast.LENGTH_LONG).show();
     }
 
     private void mostrarError(String mensaje) {
@@ -82,8 +83,8 @@ public class MainActivity extends AppCompatActivity {
 }
 
 class CalcularMoneda {
-    double[][] valores = {
-            {1, 0.93, 17.19, 0.79, 0.91}
+    double[][] valores =  {
+            {1.0, 0.93, 17.19, 0.79, 0.91}
     };
 
     public double convertir(int opcion, int de, int a, double cantidad) {
