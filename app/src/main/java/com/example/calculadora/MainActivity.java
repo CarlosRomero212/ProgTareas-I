@@ -5,69 +5,60 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
+import android.widget.TabHost;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
+    TabHost tbh;
     TextView tempVal;
-    Button btn;
     Spinner spn;
-
+    Button btn;
+    conversores objConversor = new conversores();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        btn=findViewById(R.id.btnCalcular);
+        tbh = findViewById(R.id.tbhConversores);
+        tbh.setup();
+        tbh.addTab(tbh.newTabSpec("LON").setIndicator("LONGITUD", null).setContent(R.id.tabLogitud));
+        tbh.addTab(tbh.newTabSpec("MON").setIndicator("MONEDAS", null).setContent(R.id.tabMonedas));
+        tbh.addTab(tbh.newTabSpec("ALM").setIndicator("ALMACENAMIENTO", null).setContent(R.id.tabAlmacenamiento));
 
+        btn = findViewById(R.id.btnCalcularLongitud);
         btn.setOnClickListener(new View.OnClickListener() {
-
             @Override
             public void onClick(View view) {
-                tempVal = findViewById(R.id.txtNumero1);
-                double Numero1 = Double.parseDouble(tempVal.getText().toString());
+                spn = findViewById(R.id.spnDeLongitud);
+                int de = spn.getSelectedItemPosition();
 
-                tempVal = findViewById(R.id.txtNumero2);
-                double Numero2 = Double.parseDouble(tempVal.getText().toString());
+                spn = findViewById(R.id.spnALongitud);
+                int a = spn.getSelectedItemPosition();
 
-                double respuesta = 0;
+                tempVal = findViewById(R.id.txtCantidadLongitud);
+                double cantidad= Double.parseDouble(tempVal.getText().toString());
+                double resp = objConversor.convertir(0, de, a, cantidad);
 
-                switch (spn.getSelectedItemPosition()){
-                    case 0:
-                        respuesta = Numero1+Numero2;
-                        break;
-                    case 1:
-                        respuesta = Numero1-Numero2;
-                        break;
-                    case 2:
-                        respuesta = Numero1*Numero2;
-                        break;
-                    case 3:
-                        respuesta = Numero1/Numero2;
-                        break;
-                    case 4:
-                        respuesta = (Numero1 /Numero2) * 100;
-                        break;
-                    case 5:
-                        respuesta = Math.pow(Numero1, Numero2);
-                        break;
-                    case 6:
-                        respuesta = Math.pow(Numero1, 1 / Numero2);
-                        break;
-                    case 7:
-                        respuesta = calcularFactorial((int) Numero2);
-                        break;
-                }
-                tempVal = findViewById(R.id.lblRespuesta);
-                tempVal.setText("Respuesta: "+respuesta);
-            }
-            private double calcularFactorial(int n) {
-                if (n == 0 || n == 1) {
-                    return 1;
-                } else {
-                    return n * calcularFactorial(n - 1);
-                }
+                Toast.makeText(getApplicationContext(), "Respuesta: "+ resp, Toast.LENGTH_LONG).show();
             }
         });
     }
 }
+
+class CalcularMoneda{
+
+
+
+}
+class conversores{
+    double[][] valores = {
+            {1, 100, 39.3701, 3.28084, 1.193, 1.09361, 0.001, 0.000621371}
+    };
+    public double convertir(int opcion, int de, int a, double cantidad){
+        return valores[opcion][a] / valores[opcion][de] * cantidad;
+    }
+}
+
