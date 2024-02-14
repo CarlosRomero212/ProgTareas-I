@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="spnLongitud">
+        <item>Metros</item>
+        <item>Cm</item>
+        <item>Pulgada</item>
+        <item>Pie</item>
+        <item>Varas</item>
+        <item>Yardas</item>
+        <item>Km</item>
+        <item>Millas</item>
+    </string-array>
+    <string-array name="spnMonedas">
+        <item>Dolares </item>
+        <item>Euros</item>
+        <item>Pesos Mexicanos</item>
+        <item>Libra esterlina</item>
+        <item>Franco suizo </item>
+    </string-array>
+
+</resources>
