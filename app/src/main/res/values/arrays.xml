@@ -16,6 +16,17 @@
         <item>Pesos Mexicanos</item>
         <item>Libra esterlina</item>
         <item>Franco suizo </item>
+        <item>Dolar canadiense </item>
+        <item>Yuan chino </item>
+        <item>Rublo ruso </item>
     </string-array>
+    <string-array name="spnAlmacenamiento">
+        <item>bytes </item>
+        <item>kilobytes</item>
+        <item>megabytes</item>
+        <item>gigabytes</item>
+        <item>terabytes</item>
+        <item>petabytes </item>
 
+    </string-array>
 </resources>

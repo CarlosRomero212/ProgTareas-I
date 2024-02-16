@@ -117,10 +117,43 @@
                     android:layout_height="match_parent"
                     android:orientation="vertical">
 
+                    <Spinner
+                        android:id="@+id/spnDelmacenamiento"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="60dp"
+                        android:layout_marginTop="20dp"
+                        android:entries="@array/spnAlmacenamiento" />
+
+
+                    <Spinner
+                        android:id="@+id/spnAAlmacenamiento"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="60dp"
+                        android:layout_marginTop="20dp"
+                        android:entries="@array/spnAlmacenamiento" />
+
+                    <EditText
+                        android:id="@+id/txtCantidadAlmacenamiento"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/txtCantidadAlmacenamiento"
+                        android:layout_marginTop="40dp"
+                        android:hint="Cantidad a convertir" />
+
+                    <Button
+                        android:id ="@+id/btnCalcularAlmacenamiento"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/txtAlmacenamiento"
+                        android:layout_marginTop="40dp"
+                        android:text="CONVERTIR" />
 
 
 
                 </LinearLayout>
+
             </FrameLayout>
         </LinearLayout>
     </TabHost>

@@ -12,12 +12,12 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     TabHost tbh;
-    TextView tempVal;
+    TextView  tempVal;
     Spinner spn;
     Button btn;
     Conversores objConversor = new Conversores();
     CalcularMoneda objMoneda = new CalcularMoneda();
-
+    CalcularAlmacenamiento objAlmacenamiento = new  CalcularAlmacenamiento();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,21 +70,67 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+
+        btn = findViewById(R.id.btnCalcularAlmacenamiento);
+        btn.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View view) {
+                spn = findViewById(R.id.spnDelmacenamiento);
+                int de = spn.getSelectedItemPosition();
+
+                spn = findViewById(R.id.spnAAlmacenamiento);
+                int a = spn.getSelectedItemPosition();
+
+                tempVal = findViewById(R.id.txtCantidadAlmacenamiento);
+                try {
+                    double cantidad = Double.parseDouble(tempVal.getText().toString());
+                    double resp = objAlmacenamiento.convertir (0, de, a, cantidad);
+                    mostrarResultado(resp);
+                } catch (NumberFormatException e) {
+                    mostrarError("Ingresa una cantidad válida.");
+                }
+            }
+            private void mostrarResultado(double resultado) {
+                String mensaje = String.format("Respuesta: %.8f", resultado);
+                Toast.makeText(getApplicationContext(), mensaje, Toast.LENGTH_LONG).show();
+            }
+
+        });
     }
 
+
+
+
+
+
+
     private void mostrarResultado(double resultado) {
-        String mensaje = String.format("Respuesta: %.1f", resultado);
+        String mensaje = String.format("Respuesta: %.2f", resultado);
         Toast.makeText(getApplicationContext(), mensaje, Toast.LENGTH_LONG).show();
     }
+
 
     private void mostrarError(String mensaje) {
         Toast.makeText(getApplicationContext(), "Error: " + mensaje, Toast.LENGTH_LONG).show();
     }
 }
 
-class CalcularMoneda {
+class CalcularAlmacenamiento{
+    double[][] valores = {
+            // bytes kilobytes megabytes gigabytes terabytes petabytes
+            {1.00, 0.001, 0.000001, 0.000000001, 0.000000000001, 0.000000000000001}
+    };
+    public double convertir(int opcion, int de, int a, double cantidad) {
+        return valores[opcion][a] / valores[opcion][de] * cantidad;
+    }
+}
+
+
+ class CalcularMoneda {
     double[][] valores =  {
-            {1.0, 0.93, 17.19, 0.79, 0.91}
+            //dolar euro  Mexico  libra suizo canada chino  rublo
+            {01.00, 00.93, 017.05, 00.79, 00.88 ,01.35, 07.16, 92.28 }
+
     };
 
     public double convertir(int opcion, int de, int a, double cantidad) {
