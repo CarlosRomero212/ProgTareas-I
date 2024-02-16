@@ -91,18 +91,12 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
             private void mostrarResultado(double resultado) {
-                String mensaje = String.format("Respuesta: %.8f", resultado);
+                String mensaje = String.format("Respuesta: %.1f", resultado);
                 Toast.makeText(getApplicationContext(), mensaje, Toast.LENGTH_LONG).show();
             }
 
         });
     }
-
-
-
-
-
-
 
     private void mostrarResultado(double resultado) {
         String mensaje = String.format("Respuesta: %.2f", resultado);
@@ -118,7 +112,7 @@ public class MainActivity extends AppCompatActivity {
 class CalcularAlmacenamiento{
     double[][] valores = {
             // bytes kilobytes megabytes gigabytes terabytes petabytes
-            {1.00, 0.001, 0.000001, 0.000000001, 0.000000000001, 0.000000000000001}
+            {1.00, 0.0009765625, 9.53674e-07, 9.31323e-10, 9.09495e-13, 8.88178e-16}
     };
     public double convertir(int opcion, int de, int a, double cantidad) {
         return valores[opcion][a] / valores[opcion][de] * cantidad;
