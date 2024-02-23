@@ -1,32 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="spnLongitud">
-        <item>Metros</item>
-        <item>Cm</item>
-        <item>Pulgada</item>
-        <item>Pie</item>
-        <item>Varas</item>
-        <item>Yardas</item>
-        <item>Km</item>
-        <item>Millas</item>
-    </string-array>
-    <string-array name="spnMonedas">
-        <item>Dolares </item>
-        <item>Euros</item>
-        <item>Pesos Mexicanos</item>
-        <item>Libra esterlina</item>
-        <item>Franco suizo </item>
-        <item>Dolar canadiense </item>
-        <item>Yuan chino </item>
-        <item>Rublo ruso </item>
-    </string-array>
-    <string-array name="spnAlmacenamiento">
-        <item>bytes </item>
-        <item>kilobytes</item>
-        <item>megabytes</item>
-        <item>gigabytes</item>
-        <item>terabytes</item>
-        <item>petabytes </item>
 
-    </string-array>
 </resources>
