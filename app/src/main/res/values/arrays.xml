@@ -1,32 +1,94 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name">Conversiones</string>
     <string-array name="spnLongitud">
-        <item>Metros</item>
-        <item>Cm</item>
+        <item>Milimetro  </item>
+        <item>Centimetro</item>
+        <item>Metro</item>
+        <item>Kilometro</item>
         <item>Pulgada</item>
         <item>Pie</item>
-        <item>Varas</item>
         <item>Yardas</item>
-        <item>Km</item>
         <item>Millas</item>
+        <item>Nautica</item>
+        <item>Años luz</item>
     </string-array>
-    <string-array name="spnMonedas">
-        <item>Dolares </item>
-        <item>Euros</item>
-        <item>Pesos Mexicanos</item>
-        <item>Libra esterlina</item>
-        <item>Franco suizo </item>
-        <item>Dolar canadiense </item>
-        <item>Yuan chino </item>
-        <item>Rublo ruso </item>
-    </string-array>
-    <string-array name="spnAlmacenamiento">
-        <item>bytes </item>
-        <item>kilobytes</item>
-        <item>megabytes</item>
-        <item>gigabytes</item>
-        <item>terabytes</item>
-        <item>petabytes </item>
 
+    <string-array name="spnAlmacenamiento">
+        <item>Bit</item>
+        <item>Byte</item>
+        <item>Kilobyte</item>
+        <item>Megabyte</item>
+        <item>Gigabyte</item>
+        <item>Terabyte</item>
+        <item>Petabyte</item>
+        <item>Exabyte</item>
+        <item>Zettabyte</item>
+        <item>Yottabyte</item>
     </string-array>
+
+    <string-array name="spnMoneda">
+        <item>Dolar</item>
+        <item>Euro</item>
+        <item>Yen</item>
+        <item>Libra</item>
+        <item>Franco</item>
+        <item>Dolar Canadiense</item>
+        <item>Dolar Australiano</item>
+        <item>Yuan</item>
+        <item>Rupia</item>
+        <item>Peso</item>
+    </string-array>
+
+    <string-array name="spnTiempo">
+        <item>Microsegundos</item>
+        <item>Milisegundos</item>
+        <item>Segundos</item>
+        <item>Minutos</item>
+        <item>Horas</item>
+        <item>Dias</item>
+        <item>Semanas</item>
+        <item>Meses</item>
+        <item>Años</item>
+        <item>Siglos</item>
+    </string-array>
+
+    <string-array name="spnVolumen">
+        <item>Litros</item>
+        <item>MiliLitros</item>
+        <item>Centimetro Cubico</item>
+        <item>Metro Cubico</item>
+        <item>Pie Cubico</item>
+        <item>Pulgada Cubica</item>
+        <item>Galon</item>
+        <item>Cuarto</item>
+        <item>Pinta</item>
+        <item>Taza</item>
+    </string-array>
+
+    <string-array name="spnMasa">
+        <item>Gramo</item>
+        <item>Kilogramo</item>
+        <item>Tonelada Metrica</item>
+        <item>Miligramo </item>
+        <item>Microgramo</item>
+        <item>Libra</item>
+        <item>Onza</item>
+        <item>Stone</item>
+        <item>Quintal</item>
+        <item>Tonelada Larga</item>
+    </string-array>
+
+    <string-array name="spnTransferencia">
+        <item>Bps</item>
+        <item>Kbps</item>
+        <item>Mbps</item>
+        <item>Gbps</item>
+        <item>KBps</item>
+        <item>MBps</item>
+        <item>GBps</item>
+        <item>TBps</item>
+        <item>TBps</item>
+    </string-array>
+
 </resources>
