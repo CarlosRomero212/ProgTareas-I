@@ -2,142 +2,70 @@ package com.example.calculadora;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.graphics.Color;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
-import android.widget.TabHost;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-    TabHost tbh;
-    TextView  tempVal;
-    Spinner spn;
-    Button btn;
-    Conversores objConversor = new Conversores();
-    CalcularMoneda objMoneda = new CalcularMoneda();
-    CalcularAlmacenamiento objAlmacenamiento = new  CalcularAlmacenamiento();
+    TextView tempVal;
+    SensorManager sensorManager;
+    Sensor sensor;
+    SensorEventListener sensorEventListener;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        tbh = findViewById(R.id.tbhConversores);
-        tbh.setup();
-        tbh.addTab(tbh.newTabSpec("LON").setIndicator("LONGITUD", null).setContent(R.id.tabLogitud));
-        tbh.addTab(tbh.newTabSpec("MON").setIndicator("MONEDAS", null).setContent(R.id.tabMonedas));
-        tbh.addTab(tbh.newTabSpec("ALM").setIndicator("ALMACENAMIENTO", null).setContent(R.id.tabAlmacenamiento));
-
-        btn = findViewById(R.id.btnCalcularLongitud);
-        btn.setOnClickListener(new View.OnClickListener() {
+        tempVal = findViewById(R.id.lblSensorProximidad);
+        activarSensorProximidad();
+    }
+    @Override
+    protected void onResume() {
+        iniciar();
+        super.onResume();
+    }
+    @Override
+    protected void onPause() {
+        detener();
+        super.onPause();
+    }
+    private void activarSensorProximidad(){
+        sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
+        sensor = sensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY);
+        if(sensor==null){
+            tempVal.setText("Tu telefono NO tiene sensor de proximidad");
+            finish();
+        }
+        sensorEventListener = new SensorEventListener() {
             @Override
-            public void onClick(View view) {
-                spn = findViewById(R.id.spnDeLongitud);
-                int de = spn.getSelectedItemPosition();
-
-                spn = findViewById(R.id.spnALongitud);
-                int a = spn.getSelectedItemPosition();
-
-                tempVal = findViewById(R.id.txtCantidadLongitud);
-                try {
-                    double cantidad = Double.parseDouble(tempVal.getText().toString());
-                    double resp = objConversor.convertir(0, de, a, cantidad);
-                    mostrarResultado(resp);
-                } catch (NumberFormatException e) {
-                    mostrarError("Ingresa una cantidad válida.");
+            public void onSensorChanged(SensorEvent sensorEvent) {
+                double valor = sensorEvent.values[0];
+                tempVal.setText("Proximidad: "+ valor);
+                if( valor<=4 ){
+                    getWindow().getDecorView().setBackgroundColor(Color.BLUE);
+                } else if (valor<=8) {
+                    getWindow().getDecorView().setBackgroundColor(Color.RED);
+                }else{
+                    getWindow().getDecorView().setBackgroundColor(Color.YELLOW);
                 }
             }
-        });
-
-        btn = findViewById(R.id.btnCalcularMoneda);
-        btn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                spn = findViewById(R.id.spndemoneda);
-                int de = spn.getSelectedItemPosition();
+            public void onAccuracyChanged(Sensor sensor, int i) {
 
-                spn = findViewById(R.id.spnAmoneda);
-                int a = spn.getSelectedItemPosition();
-
-                tempVal = findViewById(R.id.txtCantidadMoneda);
-                try {
-                    double cantidad = Double.parseDouble(tempVal.getText().toString());
-                    double resp = objMoneda.convertir(0, de, a, cantidad);
-                    mostrarResultado(resp);
-                } catch (NumberFormatException e) {
-                    mostrarError("Ingresa una cantidad válida.");
-                }
             }
-        });
-
-        btn = findViewById(R.id.btnCalcularAlmacenamiento);
-        btn.setOnClickListener(new View.OnClickListener() {
-
-            public void onClick(View view) {
-                spn = findViewById(R.id.spnDelmacenamiento);
-                int de = spn.getSelectedItemPosition();
-
-                spn = findViewById(R.id.spnAAlmacenamiento);
-                int a = spn.getSelectedItemPosition();
-
-                tempVal = findViewById(R.id.txtCantidadAlmacenamiento);
-                try {
-                    double cantidad = Double.parseDouble(tempVal.getText().toString());
-                    double resp = objAlmacenamiento.convertir (0, de, a, cantidad);
-                    mostrarResultado(resp);
-                } catch (NumberFormatException e) {
-                    mostrarError("Ingresa una cantidad válida.");
-                }
-            }
-            private void mostrarResultado(double resultado) {
-                String mensaje = String.format("Respuesta: %.1f", resultado);
-                Toast.makeText(getApplicationContext(), mensaje, Toast.LENGTH_LONG).show();
-            }
-
-        });
+        };
     }
-
-    private void mostrarResultado(double resultado) {
-        String mensaje = String.format("Respuesta: %.2f", resultado);
-        Toast.makeText(getApplicationContext(), mensaje, Toast.LENGTH_LONG).show();
+    private void iniciar(){
+        sensorManager.registerListener(sensorEventListener, sensor, 2000*1000);
     }
-
-
-    private void mostrarError(String mensaje) {
-        Toast.makeText(getApplicationContext(), "Error: " + mensaje, Toast.LENGTH_LONG).show();
-    }
-}
-
-class CalcularAlmacenamiento{
-    double[][] valores = {
-            // bytes kilobytes megabytes gigabytes terabytes petabytes
-            {1.00, 0.0009765625, 9.53674e-07, 9.31323e-10, 9.09495e-13, 8.88178e-16}
-    };
-    public double convertir(int opcion, int de, int a, double cantidad) {
-        return valores[opcion][a] / valores[opcion][de] * cantidad;
-    }
-}
-
-
- class CalcularMoneda {
-    double[][] valores =  {
-            //dolar euro  Mexico  libra suizo canada chino  rublo
-            {01.00, 00.93, 017.05, 00.79, 00.88 ,01.35, 07.16, 92.28 }
-
-    };
-
-    public double convertir(int opcion, int de, int a, double cantidad) {
-        return valores[opcion][a] / valores[opcion][de] * cantidad;
-    }
-}
-
-class Conversores {
-    double[][] valores = {
-            {1, 100, 39.3701, 3.28084, 1.193, 1.09361, 0.001, 0.000621371}
-    };
-
-    public double convertir(int opcion, int de, int a, double cantidad) {
-        return valores[opcion][a] / valores[opcion][de] * cantidad;
+    private void detener(){
+        sensorManager.unregisterListener(sensorEventListener);
     }
 }

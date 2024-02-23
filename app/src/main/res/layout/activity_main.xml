@@ -7,6 +7,15 @@
     tools:context=".MainActivity">
 
 
-
+    <TextView
+        android:id="@+id/lblSensorProximidad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:text="Sensor de Proximidad: ?"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="315dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
