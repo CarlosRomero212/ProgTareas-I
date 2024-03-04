@@ -7,6 +7,49 @@
     tools:context=".MainActivity">
 
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/pantalla1"
+        tools:layout_editor_absoluteX="46dp"
+        tools:layout_editor_absoluteY="140dp" />
 
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="183dp"
+        android:layout_height="171dp"
+        android:layout_marginStart="28dp"
+        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/pa1" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="130dp"
+        android:layout_height="48dp"
+        android:text="Button"
+        tools:layout_editor_absoluteX="46dp"
+        tools:layout_editor_absoluteY="309dp" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="193dp"
+        android:layout_height="169dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/button2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/pa1" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="139dp"
+        android:layout_height="49dp"
+        android:layout_marginEnd="28dp"
+        android:text="Button"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:layout_editor_absoluteY="318dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
