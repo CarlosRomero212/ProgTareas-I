@@ -6,90 +6,10 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/pantalla1"
-        tools:layout_editor_absoluteX="46dp"
-        tools:layout_editor_absoluteY="140dp" />
-
-
-    <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="193dp"
-        android:layout_height="169dp"
-        android:layout_marginEnd="12dp"
-        android:layout_marginBottom="12dp"
-        app:layout_constraintBottom_toTopOf="@+id/button2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/pa1" />
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="130dp"
-        android:layout_height="48dp"
-        android:text="Button"
-        tools:layout_editor_absoluteX="35dp"
-        tools:layout_editor_absoluteY="314dp" />
-
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="175dp"
-        android:layout_height="183dp"
-        app:srcCompat="@drawable/pa1"
-        tools:layout_editor_absoluteX="21dp"
-        tools:layout_editor_absoluteY="378dp" />
-
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="125dp"
-        android:layout_height="49dp"
-        android:text="Button"
-        tools:layout_editor_absoluteX="35dp"
-        tools:layout_editor_absoluteY="553dp" />
-
-    <Button
-        android:id="@+id/button4"
-        android:layout_width="135dp"
-        android:layout_height="53dp"
-        android:text="Button"
-        tools:layout_editor_absoluteX="229dp"
-        tools:layout_editor_absoluteY="553dp" />
-
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="139dp"
-        android:layout_height="49dp"
-        android:layout_marginEnd="24dp"
-        android:text="Button"
-        app:layout_constraintEnd_toEndOf="parent"
-        tools:layout_editor_absoluteY="314dp" />
-
-    <ImageView
-        android:id="@+id/imageView6"
-        android:layout_width="192dp"
-        android:layout_height="186dp"
-        app:srcCompat="@drawable/pa1"
-        tools:layout_editor_absoluteX="199dp"
-        tools:layout_editor_absoluteY="374dp" />
-
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="183dp"
-        android:layout_height="171dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginBottom="12dp"
-        app:layout_constraintBottom_toTopOf="@+id/button"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/pa1" />
-
     <TabHost
-        android:layout_width="408dp"
-        android:layout_height="121dp"
-        tools:layout_editor_absoluteX="2dp"
-        tools:layout_editor_absoluteY="1dp">
+        android:id="@+id/tbhConversores"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -104,33 +24,36 @@
             <FrameLayout
                 android:id="@android:id/tabcontent"
                 android:layout_width="match_parent"
-                android:layout_height="49dp">
+                android:layout_height="match_parent">
 
-                <LinearLayout
-                    android:id="@+id/tab1"
+                <RelativeLayout
+                    android:id="@+id/Inicio"
                     android:layout_width="match_parent"
-                    android:layout_height="44dp"
-                    android:orientation="vertical">
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"/>
 
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/tab2"
+                <RelativeLayout
+                    android:id="@+id/Gestion"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical">
+                </RelativeLayout>
 
-                </LinearLayout>
 
-                <LinearLayout
-                    android:id="@+id/tab3"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
 
-                </LinearLayout>
+
+
+
+
+
+
             </FrameLayout>
         </LinearLayout>
     </TabHost>
+
+
+
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
