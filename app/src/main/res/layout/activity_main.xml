@@ -48,21 +48,18 @@
         android:layout_marginTop="40dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
-    <EditText
-        android:id="@+id/txtdui"
-        android:inputType="number"
-        android:hint="DUI"
-        android:layout_below="@id/txtemail"
-        android:layout_marginTop="40dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+
     <Button
         android:id="@+id/btnGuardarAgendaAmigos"
-        android:layout_below="@id/txtdui"
-        android:layout_marginTop="40dp"
-        android:text="GUARDAR AMIGO"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtemail"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="51dp"
+        android:layout_marginBottom="142dp"
+        android:text="GUARDAR AMIGO" />
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fabListarAmigos"
         android:layout_width="wrap_content"

@@ -9,13 +9,13 @@ public class amigos {
     String dui;
     String urlFotoAmigo;
 
-    public amigos(String idAmigo, String nombre, String direccion, String telefono, String email, String dui, String urlFoto) {
+    public amigos(String idAmigo, String nombre, String direccion, String telefono, String email, String dui) {
         this.idAmigo = idAmigo;
         this.nombre = nombre;
         this.direccion = direccion;
         this.telefono = telefono;
         this.email = email;
-        this.dui = dui;
+
         this.urlFotoAmigo = urlFoto;
     }
 
@@ -65,13 +65,6 @@ public class amigos {
 
     public void setEmail(String email) {
         this.email = email;
-    }
+    }}
 
-    public String getDui() {
-        return dui;
-    }
 
-    public void setDui(String dui) {
-        this.dui = dui;
-    }
-}

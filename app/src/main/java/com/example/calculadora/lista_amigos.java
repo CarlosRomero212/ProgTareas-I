@@ -75,8 +75,8 @@ public class lista_amigos extends AppCompatActivity {
                             cAmigos.getString(2), //direccion
                             cAmigos.getString(3), //telefono
                             cAmigos.getString(4), //email
-                            cAmigos.getString(5), //dui
-                            cAmigos.getString(6), //foto
+
+                            cAmigos.getString(5), //foto
                     };
                     paramatros.putString("accion", "modificar");
                     paramatros.putStringArray("amigos", amigos);
@@ -181,8 +181,7 @@ public class lista_amigos extends AppCompatActivity {
                             cAmigos.getString(2),//direccion
                             cAmigos.getString(3),//telefono
                             cAmigos.getString(4),//email
-                            cAmigos.getString(5),//dui
-                            cAmigos.getString(6) //foto
+                            cAmigos.getString(5) //foto
                     );
                     alAmigos.add(datosAmigos);
                 }while (cAmigos.moveToNext());
@@ -195,10 +194,10 @@ public class lista_amigos extends AppCompatActivity {
             }else {
                 paramatros.putString("accion", "nuevo");
                 abrirActividad(paramatros);
-                mostrarMsg("No hay Datos de amigos.");
+                mostrarMsg("No hay Datos ");
             }
         }catch (Exception e){
-            mostrarMsg("Error al obtener los amigos: "+ e.getMessage());
+            mostrarMsg("Error al obtener datos "+ e.getMessage());
         }
     }
     private void mostrarMsg(String msg){
